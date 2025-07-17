@@ -1,139 +1,38 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วัสดุยืม-คืน</title>
-    <style>
-        body {
-            font-family: 'Sarabun', sans-serif;
-            background-color: #f0f0f0;
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-
-        h1 {
-            color: #ff5733;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 50px;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .button-container {
-            display: inline-block;
-            margin: 20px;
-            text-align: center;
-        }
-
-        .button-container img {
-            width: 500px; /* เพิ่มขนาดให้ใหญ่ขึ้น */
-            height: 500px; /* เพิ่มขนาดให้ใหญ่ขึ้น */
-            object-fit: cover; /* ปรับให้รูปเต็มพื้นที่ */
-            border-radius: 10px;
-            transition: transform 0.2s ease, opacity 0.3s ease;
-        }
-
-        /* เมื่อเมาส์ชี้ที่รูปภาพ ให้เปลี่ยนภาพ */
-        .button-container:hover img {
-            content: url('ChatGPT Image Apr 2, 2025, 10_36_02 AM.png'); /* เปลี่ยนเป็นภาพที่ต้องการ */
-            transform: scale(1.1);
-        }
-
-        .button-container-2:hover img {
-            content: url('ChatGPT Image Apr 2, 2025, 10_52_47 AM.png'); /* เปลี่ยนเป็นภาพที่ต้องการ */
-            transform: scale(1.1);
-        }
-
-        .button-text {
-            margin-top: 10px;
-            font-size: 3rem;
-            color: #333;
-            text-transform: uppercase;
-        }
-
-        .message-box {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Media Query สำหรับมือถือ */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem; /* ลดขนาดตัวอักษรหัวข้อ */
-            }
-
-            p {
-                font-size: 1rem; /* ลดขนาดข้อความ */
-            }
-
-            .button-container {
-                width: 80%; /* ทำให้ปุ่มมีขนาดเล็กลงในมือถือ */
-                max-width: 200px;
-            }
-
-            .button-container img {
-                width: 100%; /* ให้ภาพขยายเต็มพื้นที่ */
-                height: auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem; /* ลดขนาดตัวอักษรหัวข้อให้เล็กลงสำหรับมือถือขนาดเล็ก */
-            }
-
-            p {
-                font-size: 0.9rem; /* ลดขนาดข้อความ */
-            }
-
-            .button-container {
-                width: 90%; /* ปรับให้ปุ่มเต็มความกว้างของหน้าจอ */
-                max-width: 180px;
-            }
-        }
-
-    </style>
+  <meta charset="UTF-8" />
+  <title>เปิดลิงก์ในหน้าเดียว</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    nav a {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 8px 12px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    nav a:hover {
+      background: #45a049;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <div class="message-box">
-        <h1>เลือกประเภทวัสดุที่ต้องการเบิก-ยืม</h1>
-        <p>คลิกที่รูปภาพด้านล่างเพื่อไปที่ลิงค์ต่างๆ:</p>
-    </div>
+  <h1>เมนูเปิดลิงก์ในหน้าเดียว</h1>
+  <nav>
+    <a href="https://script.google.com/macros/s/AKfycbxrD_ynNiLblR1hEvZBpQkCGVCxQ1dw1MZ2XSNsdO6Oy94Ln6OI06zNNeO50qRa9b5ZgQ/exec" target="contentFrame">Google</a>
+    <a href="https://script.google.com/macros/s/AKfycbwzNDnOxizDR4YwO9DuNq3wADzNF_qrKN5QQy1XAhBViPG1SleYBa61LMUQUwJa4CwCHg/exec" target="contentFrame">Wikipedia</a>
+    <a href="https://script.google.com/macros/s/AKfycbyGsvzFj-02-fZauBJWKW03KlQGORRkCyKKwAIppK__rP5SkKRZ8u_5iRjvlZrkyh6F/exec" target="contentFrame">YouTube</a>
+  </nav>
 
-    <div class="container">
-        <!-- ลิงค์ที่ 1 -->
-        <div class="button-container">
-            <a href="https://script.google.com/macros/s/AKfycbwDbw-DfcMjof_LyxuUwO8mikYTGdL2TSUc_2P4bUd9qiNrqhGIp1ApT3HPVl47D9jw/exec" target="_blank">
-                <img src="ChatGPT Image Apr 2, 2025, 10_35_00 AM.png" alt="วัสดุสิ้นเปลือง" />
-                <div class="button-text">วัสดุสิ้นเปลือง</div>
-            </a>
-        </div>
-
-        <!-- ลิงค์ที่ 2 -->
-        <div class="button-container button-container-2">
-            <a href="https://script.google.com/macros/s/AKfycbxz1AZ7gUSy3xrdH-hRvDUMQUrcFUK0NVzI3dNeb1P0r-aOST1bW_rM7NcrBBFopjzL/exec" target="_blank">
-                <img src="ChatGPT Image Apr 2, 2025, 10_53_02 AM.png" alt="วัสดุยืม-คืน" />
-                <div class="button-text">วัสดุยืม-คืน</div>
-            </a>
-        </div>
-    </div>
+  <iframe name="contentFrame" src=""></iframe>
 </body>
 </html>
