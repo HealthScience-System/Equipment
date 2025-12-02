@@ -67,11 +67,11 @@
 </head>
 <body class="flex flex-col justify-center items-center p-4 md:p-8">
 
-    <!-- New Main Wrapper for two-column layout on large screens -->
-    <div class="main-layout w-full max-w-6xl mx-auto lg:grid lg:grid-cols-2 lg:gap-10 items-center">
+    <!-- Main Wrapper for Single-Column layout (max-w-3xl to keep it centered and readable) -->
+    <div class="main-layout w-full max-w-3xl mx-auto">
 
-        <!-- Column 1: Dashboard Card (Existing Content) -->
-        <div class="container bg-white p-6 sm:p-8 md:p-12 rounded-3xl shadow-2xl text-center w-full lg:max-w-none mx-auto my-auto lg:col-span-1 border-t-4 border-sport-blue">
+        <!-- Main Dashboard Card (Now the only content) -->
+        <div class="container bg-white p-6 sm:p-8 md:p-12 rounded-3xl shadow-2xl text-center w-full mx-auto my-auto border-t-4 border-sport-blue">
             
             <!-- Header Section -->
             <div class="mb-10">
@@ -146,34 +146,23 @@
             </p>
 
         </div>
-
-        <!-- Column 2: Visual Sidebar (Image/Illustration) - ENHANCED -->
-        <div class="hidden lg:flex lg:col-span-1 h-full flex-col justify-center items-center p-8 bg-sport-dark rounded-3xl shadow-2xl">
-            <!-- Athletic Visual Placeholder - ENHANCED -->
-            <div class="text-white text-center">
-                
-                <h3 class="text-2xl font-extrabold mb-8 uppercase tracking-widest text-sport-teal">
-                    Staff Laboratory Sports and Healthscience
-                </h3>
-                
-                <!-- START IMAGE BLOCK -->
-                <!-- *** ใส่ URL รูปภาพของคุณที่นี่ *** -->
-                <!-- Image must be a public URL (e.g., JPEG, PNG) -->
-                <img src="nuttida.png" 
-                    alt="ภาพประกอบด้านวิทยาศาสตร์การกีฬา" 
-                    class="w-full max-w-sm h-auto mx-auto mb-6 rounded-lg shadow-xl object-cover"
-                    onerror="this.onerror=null; this.src='https://placehold.co/400x300/F87171/FFFFFF?text=IMAGE+LOAD+ERROR';" 
-                />
-                <!-- END IMAGE BLOCK -->
-
-                <p class="text-lg font-light text-gray-300 mb-6">
-                    สามารถติดต่อสอบถามเจ้าที่โดยตรงได้ที่<br>nuttida.mah@mfu.ac.th
-                </p>
-
-                <p class="mt-4 text-xs text-gray-500">
-                    <i class="fas fa-laptop-code mr-1"></i> ระบบจัดการทรัพยากรห้องปฏิบัติการ
-                </p>
-            </div>
+        
+        <!-- Contact Information (Moved outside the main card, but still centered) -->
+        <div class="text-center mt-10 p-6 bg-white/70 rounded-xl shadow-lg border-l-4 border-sport-teal max-w-xl mx-auto">
+            <h3 class="text-lg font-semibold text-sport-dark mb-2">
+                Staff Laboratory Sports and Healthscience
+            </h3>
+            <img src="nuttida.png" 
+                alt="ภาพเจ้าหน้าที่" 
+                class="w-24 h-24 mx-auto mb-4 rounded-full object-cover shadow-md"
+                onerror="this.onerror=null; this.src='https://placehold.co/96x96/F87171/FFFFFF?text=PIC';" 
+            />
+            <p class="text-base font-light text-gray-700 mb-2">
+                สามารถติดต่อสอบถามเจ้าที่โดยตรงได้ที่
+            </p>
+            <p class="text-xl font-bold text-sport-blue">
+                nuttida.mah@mfu.ac.th
+            </p>
         </div>
 
     </div>
