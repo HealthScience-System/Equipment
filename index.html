@@ -4,172 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ระบบวิทยาศาสตร์การกีฬาและสุขภาพ</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Kanit Font for Thai language -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Load Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    // Apply Kanit font globally
+                    fontFamily: {
+                        sans: ['Kanit', 'sans-serif'],
+                    },
+                    colors: {
+                        // Define an athletic color palette
+                        'sport-dark': '#011638', 
+                        'sport-blue': '#0070F3', // Primary brand color
+                        'sport-teal': '#00C9A7', // Accent/Highlight color
+                        'sport-light': '#F0F4F8',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* General Body Styles */
+        /* Custom styles for body background and scroll appearance */
         body {
             font-family: 'Kanit', sans-serif;
-            background: linear-gradient(135deg, #f0f8ff, #e0f7fa); /* Soft gradient background */
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 2.5rem 1.25rem; /* Increased padding for overall spacing */
+            /* Gradient background for an energetic feel */
+            background: linear-gradient(145deg, #e0f2fe 0%, #ffffff 50%, #e0f2fe 100%);
             box-sizing: border-box;
+            color: #333;
         }
 
-        /* Main Container Styling */
-        .container {
-            background-color: #ffffff;
-            padding: 2.5rem 2.5rem; /* More generous padding */
-            border-radius: 1.5rem; /* Softer rounded corners */
-            box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.15); /* Stronger, softer shadow */
-            text-align: center;
-            width: 100%;
-            max-width: 37.5rem; /* Max width 600px */
-            box-sizing: border-box;
-        }
-
-        /* Heading Styles */
-        h1, h2 {
-            color: #004085; /* Deeper blue for headings */
-            margin-bottom: 1.5rem; /* Consistent bottom margin */
-            line-height: 1.3;
-        }
-
-        h1 {
-            font-size: 2.5rem; /* Larger main heading */
-            font-weight: 700;
-        }
-
-        h2 {
-            font-size: 1.8rem; /* Slightly larger sub-heading */
-            font-weight: 600;
-            margin-top: 2.5rem; /* More space above staff section */
-        }
-
-        /* Options Grid Layout */
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr)); /* Min width 150px */
-            gap: 1.25rem; /* Gap between grid items */
-            margin-bottom: 1.875rem; /* Space below grid */
-        }
-
-        /* Individual Option Link Styling */
+        /* Specific styles for the option links for better hover effects */
         .option-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #e6f7ff; /* Lighter blue for options */
-            color: #0056b3;
-            text-decoration: none;
-            border-radius: 0.75rem; /* Rounded corners for links */
-            padding: 1.5rem 1rem; /* Padding inside links */
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.08); /* Subtle initial shadow */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .option-link:hover {
-            background-color: #cceeff; /* More pronounced hover background */
-            transform: translateY(-0.375rem); /* Lift more on hover */
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+            transform: translateY(-0.5rem) scale(1.03); /* Lift and slightly scale */
+            box-shadow: 0 10px 20px rgba(0, 112, 243, 0.2);
+            border-color: #00C9A7; /* Highlight border on hover */
         }
-
-        /* Icon Styling */
-        .option-icon {
-            font-size: 3rem; /* Larger icons */
-            margin-bottom: 0.75rem; /* Space below icon */
-            color: #007bff; /* Vibrant blue for icons */
+        /* Style for the Admin link (Staff) */
+        .admin-link {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: #FEF2F2; /* Light red background */
+            border: 2px solid #F87171; /* Red border */
         }
-
-        /* Text Styling within Options */
-        .option-text {
-            font-size: 1.15rem; /* Slightly larger text */
-            font-weight: 600; /* Semi-bold text */
-            text-align: center;
-        }
-
-        /* Hint Text Styling */
-        .hint-text {
-            font-size: 0.85rem;
-            color: #777;
-            margin-top: 1.25rem; /* Space above hint text */
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 37.5rem) { /* Max width 600px */
-            .container {
-                padding: 1.875rem 1.25rem; /* Adjust padding for smaller screens */
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: 1.6rem;
-                margin-top: 2rem;
-            }
-            .options-grid {
-                grid-template-columns: 1fr; /* Stack options on very small screens */
-                gap: 1rem;
-            }
-            .option-link {
-                padding: 1.25rem 1rem;
-            }
-            .option-icon {
-                font-size: 2.5rem;
-                margin-bottom: 0.5rem;
-            }
-            .option-text {
-                font-size: 1rem;
-            }
-            .hint-text {
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (max-width: 25rem) { /* Max width 400px, for extra small devices */
-             h1 {
-                font-size: 1.7rem;
-            }
-            h2 {
-                font-size: 1.4rem;
-            }
+        .admin-link:hover {
+            background-color: #FEE2E2;
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2);
+            transform: translateY(-0.3rem) scale(1.02);
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>ระบบจัดการ<br>วิทยาศาสตร์การกีฬาและสุขภาพ</h1>
-        <div class="options-grid">
-            <a href="https://script.google.com/macros/s/AKfycbyh0hyvjb-u2p68vjL7bRi2f2pdw2no9HTm9Ao_CLve1c6PnhO4CSACZ95natBQZ6WXAQ/exec" class="option-link" target="_blank" title="ยืมคืนครุภัณฑ์">
-                <i class="fas fa-dumbbell option-icon"></i>
-                <span class="option-text">ยืมคืนครุภัณฑ์</span>
-            </a>
-            <a href="https://script.google.com/macros/s/AKfycbyAf70CvK7dhxV0nfW_Q9yurJ2CtOeBCAvO2sNCv0Q0Ne7fEDl6u1nUHM3QPc0egCOI/exec" class="option-link" target="_blank" title="ยืมคืนวัสดุ">
-                <i class="fas fa-box-open option-icon"></i>
-                <span class="option-text">ยืมคืนวัสดุ</span>
-            </a>
-            <a href="https://script.google.com/macros/s/AKfycbztqJUoGZoYLNlewK0AjmMEu1gxXbe3YPCmhzgiI-jBR1tTGP9Y2HsZ7Q3derMAThmH/exec" class="option-link" target="_blank" title="จองห้องปฏิบัติการ">
-                <i class="fas fa-flask option-icon"></i>
-                <span class="option-text">จองห้องปฏิบัติการ</span>
-            </a>
+<body class="flex flex-col justify-center items-center p-4 md:p-8">
+
+    <!-- New Main Wrapper for two-column layout on large screens -->
+    <div class="main-layout w-full max-w-6xl mx-auto lg:grid lg:grid-cols-2 lg:gap-10 items-center">
+
+        <!-- Column 1: Dashboard Card (Existing Content) -->
+        <div class="container bg-white p-6 sm:p-8 md:p-12 rounded-3xl shadow-2xl text-center w-full lg:max-w-none mx-auto my-auto lg:col-span-1 border-t-4 border-sport-blue">
+            
+            <!-- Header Section -->
+            <div class="mb-10">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-sport-dark mb-2 leading-tight">
+                    <i class="fas fa-running text-sport-teal mr-3"></i> ระบบจัดการ
+                </h1>
+                <h1 class="text-2xl sm:text-3xl font-light text-sport-dark">
+                    วิทยาศาสตร์การกีฬาและสุขภาพ
+                </h1>
+            </div>
+
+            <!-- Public Access Options -->
+            <h2 class="text-xl sm:text-2xl font-bold text-sport-blue mb-6 border-b-2 pb-3 border-sport-blue/30 uppercase tracking-wider">
+                สำหรับนักศึกษา / ผู้ใช้ทั่วไป
+            </h2>
+
+            <!-- Options Grid (3 columns on desktop, 1 on mobile) -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mb-12">
+                
+                <!-- Option 1: ยืมคืนครุภัณฑ์ (Equipment Borrowing) -->
+                <a href="https://script.google.com/macros/s/AKfycbyh0hyvjb-u2p68vjL7bRi2f2pdw2no9HTm9Ao_CLve1c6PnhO4CSACZ95natBQZ6WXAQ/exec" 
+                   class="option-link flex flex-col items-center p-6 rounded-2xl bg-sport-light text-sport-dark border-2 border-sport-blue/50 shadow-lg"
+                   target="_blank" 
+                   title="ยืมคืนครุภัณฑ์">
+                    <i class="fas fa-dumbbell text-4xl text-sport-teal mb-3"></i>
+                    <span class="text-base font-semibold">ยืมคืนครุภัณฑ์</span>
+                    <span class="text-xs text-gray-500 mt-1">Equipment Request</span>
+                </a>
+
+                <!-- Option 2: ยืมคืนวัสดุ (Material Borrowing) -->
+                <a href="https://script.google.com/macros/s/AKfycbyAf70CvK7dhxV0nfW_Q9yurJ2CtOeBCAvO2sNCv0Q0Ne7fEDl6u1nUHM3QPc0egCOI/exec" 
+                   class="option-link flex flex-col items-center p-6 rounded-2xl bg-sport-light text-sport-dark border-2 border-sport-blue/50 shadow-lg"
+                   target="_blank" 
+                   title="ยืมคืนวัสดุ">
+                    <i class="fas fa-box-open text-4xl text-sport-teal mb-3"></i>
+                    <span class="text-base font-semibold">ยืมคืนวัสดุ</span>
+                    <span class="text-xs text-gray-500 mt-1">Material Request</span>
+                </a>
+
+                <!-- Option 3: จองห้องปฏิบัติการ (Lab Reservation) -->
+                <a href="https://script.google.com/macros/s/AKfycbztqJUoGZoYLNlewK0AjmMEu1gxXbe3YPCmhzgiI-jBR1tTGP9Y2HsZ7Q3derMAThmH/exec" 
+                   class="option-link flex flex-col items-center p-6 rounded-2xl bg-sport-light text-sport-dark border-2 border-sport-blue/50 shadow-lg"
+                   target="_blank" 
+                   title="จองห้องปฏิบัติการ">
+                    <i class="fas fa-flask text-4xl text-sport-teal mb-3"></i>
+                    <span class="text-base font-semibold">จองห้องปฏิบัติการ</span>
+                    <span class="text-xs text-gray-500 mt-1">Lab Reservation</span>
+                </a>
+                
+            </div>
+            
+            <!-- Staff Access Section -->
+            <h2 class="text-xl sm:text-2xl font-bold text-sport-dark mb-6 border-b-2 pb-3 border-gray-300 uppercase tracking-wider">
+                ระบบจัดการ (สำหรับเจ้าหน้าที่)
+            </h2>
+            
+            <!-- Staff Option Grid (Single prominent link) -->
+            <div class="grid grid-cols-1 gap-6">
+                <!-- Staff Option 1: ระบบผู้ดูแลข้อมูล (Admin System) -->
+                <a href="https://script.google.com/macros/s/AKfycbyt8RnUXzPcocxvKc0UVyj3wkuiIKg3lF4zb2u7oojENIAuT_8z91bEk-BrM2fPPJCP/exec" 
+                   class="admin-link flex items-center justify-center p-4 rounded-xl text-red-700 shadow-md font-extrabold hover:text-red-800"
+                   target="_blank" 
+                   title="เข้าสู่ระบบผู้ดูแลข้อมูล">
+                    <i class="fas fa-user-shield text-3xl mr-4"></i>
+                    <span class="text-lg sm:text-xl">เข้าสู่ระบบผู้ดูแลข้อมูล</span>
+                </a>
+            </div>
+            
+            <!-- Hint Text -->
+            <p class="text-xs text-gray-500 mt-8">
+                <i class="fas fa-info-circle mr-1"></i> คลิกที่ลิงก์เพื่อเข้าสู่ระบบที่เกี่ยวข้อง
+            </p>
+
         </div>
 
-        <h2>ระบบจัดการ<br>วิทยาศาสตร์การกีฬาและสุขภาพ (สำหรับเจ้าหน้าที่)</h2>
-        <div class="options-grid">
-            <a href="https://script.google.com/macros/s/AKfycbyt8RnUXzPcocxvKc0UVyj3wkuiIKg3lF4zb2u7oojENIAuT_8z91bEk-BrM2fPPJCP/exec" class="option-link" target="_blank" title="เข้าสู่ระบบผู้ดูแลข้อมูล">
-                <i class="fas fa-user-shield option-icon"></i> <span class="option-text">ระบบผู้ดูแลข้อมูล</span>
-            </a>
+        <!-- Column 2: Visual Sidebar (Image/Illustration) - ENHANCED -->
+        <div class="hidden lg:flex lg:col-span-1 h-full flex-col justify-center items-center p-8 bg-sport-dark rounded-3xl shadow-2xl">
+            <!-- Athletic Visual Placeholder - ENHANCED -->
+            <div class="text-white text-center">
+                
+                <h3 class="text-2xl font-extrabold mb-8 uppercase tracking-widest text-sport-teal">
+                    Staff Laboratory Sports and Healthscience
+                </h3>
+                
+                <!-- START IMAGE BLOCK -->
+                <!-- *** ใส่ URL รูปภาพของคุณที่นี่ *** -->
+                <!-- Image must be a public URL (e.g., JPEG, PNG) -->
+                <img src="nuttida.png" 
+                    alt="ภาพประกอบด้านวิทยาศาสตร์การกีฬา" 
+                    class="w-full max-w-sm h-auto mx-auto mb-6 rounded-lg shadow-xl object-cover"
+                    onerror="this.onerror=null; this.src='https://placehold.co/400x300/F87171/FFFFFF?text=IMAGE+LOAD+ERROR';" 
+                />
+                <!-- END IMAGE BLOCK -->
+
+                <p class="text-lg font-light text-gray-300 mb-6">
+                    สามารถติดต่อสอบถามเจ้าที่โดยตรงได้ที่<br>nuttida.mah@mfu.ac.th
+                </p>
+
+                <p class="mt-4 text-xs text-gray-500">
+                    <i class="fas fa-laptop-code mr-1"></i> ระบบจัดการทรัพยากรห้องปฏิบัติการ
+                </p>
+            </div>
         </div>
-        <p class="hint-text">คลิกที่ไอคอนเพื่อเข้าสู่ระบบที่เกี่ยวข้อง</p>
+
     </div>
 </body>
 </html>
